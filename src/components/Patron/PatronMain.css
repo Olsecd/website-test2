@@ -1,0 +1,75 @@
+.formPatronMain h1{
+  text-align: center;
+  width: 100%;
+  font-weight: bolder;
+}
+
+.formPatronMain h3{
+  text-align: center;
+  width: 100%;
+  font-weight: bolder;
+}
+
+.formPatronMain p{
+  font-weight: bolder;
+}
+.formPatronMain section {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.formPatronMain aside {
+  width: 25%;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 100px;
+  margin-left: 15px;
+  margin-right: 15px;
+  float: right;
+  font-style: italic;
+}
+
+.formPatronMain th{
+  text-align: left;
+  padding: 8px;
+  width: 90px;
+  font-weight: 700;
+  color: whitesmoke;
+  background-color: #007bff;
+}
+
+.formPatronMain td {
+  text-align: left;
+  padding: 8px;
+  width: 90px;
+  font-weight: 700;
+}
+
+*.t1 {
+  max-height: 800px;
+  max-width: 1600px;
+  overflow-y: scroll;
+  table-layout: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  border: 1px solid #ddd;
+}
+
+.formPatronMain ul {
+  list-style-type: none;
+}
+
+.formPatronMain li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  list-style-type: none;
+}
+
+.dataTables_paginate {
+  width: 50%;
+}
+
+.dataTables_info {
+  padding-left: 16px;
+}

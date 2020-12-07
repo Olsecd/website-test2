@@ -1,0 +1,32 @@
+h1 {
+  text-align: center;
+  width: 100%;
+  font-weight: bolder;
+}
+
+.selectBusiness th {
+  text-align: left;
+  padding: 8px;
+  width: 90px;
+  font-weight: 700;
+  color: whitesmoke;
+  background-color: #007bff;
+}
+
+.selectBusiness td {
+  text-align: left;
+  padding: 8px;
+  width: 90px;
+  font-weight: 700;
+}
+
+*.t1 {
+  max-height: 800px;
+  max-width: 1600px;
+  overflow-y: scroll;
+  table-layout: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  border: 1px solid #ddd;
+}
