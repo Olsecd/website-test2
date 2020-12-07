@@ -20,7 +20,7 @@ import {
 } from "reactstrap";
 import axios from "axios";
 import { RadioGroup, RadioButton } from "react-radio-buttons";
-import "./selectbusiness.css"
+import "./selectbusiness.css";
 
 const SelectBusiness = (props) => {
   let urlAll = "/react-backend/owner/displayAllBusiness.php";
@@ -76,7 +76,7 @@ const SelectBusiness = (props) => {
 
   const renderTable = () => {
     return (
-      <div className="selectBusiness">
+      <div className='selectBusiness'>
         <Table>
           <thead>
             <tr>
@@ -98,13 +98,16 @@ const SelectBusiness = (props) => {
                   <td>{AllBusinesses.town}</td>
                   <td>{AllBusinesses.zip}</td>
                   <td>{AllBusinesses.county}</td>
-                  <td> <input
-                    onClick={() => handleBusiness(AllBusinesses.street)}
-                    type='radio'
-                    value='street'
-                    name='street'
-                  />{" "}
-                  Select this business</td>
+                  <td>
+                    {" "}
+                    <input
+                      onClick={() => handleBusiness(AllBusinesses.street)}
+                      type='radio'
+                      value='street'
+                      name='street'
+                    />{" "}
+                    Select this business
+                  </td>
                 </tr>
               );
             })}
@@ -116,7 +119,6 @@ const SelectBusiness = (props) => {
 
   return (
     <>
-
       <h1> Select a business</h1>
       <Dropdown isOpen={adminDropdownOpen} toggle={toggleAdmin}>
         <DropdownToggle color='secondary' caret>
@@ -129,7 +131,11 @@ const SelectBusiness = (props) => {
         </DropdownMenu>
       </Dropdown>
       {renderTable()}
-      <Button onClick={() => selectedBusiness(business)} color='success'>
+      <Button
+        onClick={() => selectedBusiness(business)}
+        disabled={!business}
+        color='success'
+      >
         Select Business
       </Button>{" "}
       {message === "Successful" && <Redirect to='/BusinessMain' />}
