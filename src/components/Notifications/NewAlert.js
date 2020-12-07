@@ -18,6 +18,7 @@ export default function NewAlert() {
   let url = "/react-backend/business/displayCheckIn.php";
   let sendURL = "/react-backend/business/sendemail/alert.php";
 
+  const [message, setMessage] = useState(null);
   // Modal
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
@@ -39,10 +40,17 @@ export default function NewAlert() {
     FormData2.append("end_date", alert.end_date);
     FormData2.append("message", alert.message);
 
-    axios.post(sendURL, FormData2).then((res) => {
-      console.log(FormData2);
-      console.log(res);
-    });
+    axios
+      .post(sendURL, FormData2)
+      .then((res) => {
+        console.log(FormData2);
+        console.log(res);
+        setMessage("Success");
+      })
+      .catch((err) => {
+        console.log(err);
+        setMessage("Failed");
+      });
   };
   // Runs on Page Load
   useEffect(() => {
@@ -68,11 +76,16 @@ export default function NewAlert() {
         <i class='fas fa-question-circle'></i>
       </Button>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}><p>Report New Case</p></ModalHeader>
+        <ModalHeader toggle={toggle}>
+          <p>Report New Case</p>
+        </ModalHeader>
         <ModalBody>
-          <p>To protect the privacy of the patient, COVID cases are to be reported
-          anonymously. Simply select a date range. Any customers who were
-          checked-in on those dates will be notified of the positive case.</p>
+          <p>
+            To protect the privacy of the patient, COVID cases are to be
+            reported anonymously. Simply select a date range. Any customers who
+            were checked-in on those dates will be notified of the positive
+            case.
+          </p>
         </ModalBody>
         <ModalFooter>
           <Button color='primary' onClick={toggle}>
@@ -111,6 +124,7 @@ export default function NewAlert() {
           />
         </FormGroup>
         <FormGroup>
+          <p className={message === "Success" ? "suc" : "fail"}>{message}</p>
           <Button color='danger'>
             <i style={{ color: "white" }} class='fas fa-exclamation-triangle' />{" "}
             Report

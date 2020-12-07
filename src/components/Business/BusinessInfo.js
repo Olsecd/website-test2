@@ -10,6 +10,7 @@ const BusinessInfo = () => {
 
   const [formData, setFormData] = useState([]);
   const [displayData, setDisplayData] = useState([]);
+  const [message, setMessage] = useState(null);
 
   useEffect(() => {
     axios
@@ -45,16 +46,22 @@ const BusinessInfo = () => {
     const url = "/react-backend/business/updateBusinessInfo.php";
 
     // post business info data
-    axios.post(url, formData2).then((res) => {
-      console.log(res);
-    });
+    axios
+      .post(url, formData2)
+      .then((res) => {
+        console.log(res);
+        setMessage("Success");
+      })
+      .catch((err) => {
+        console.log(err);
+        setMessage("Failed");
+      });
   };
 
   return (
     <>
-      
       <AvForm className='formBusinessInfo' onValidSubmit={registerHandler}>
-      <h1>Enter Business Info</h1>
+        <h1>Enter Business Info</h1>
         <FormGroup>
           <AvField
             label='Business Name'
@@ -141,6 +148,8 @@ const BusinessInfo = () => {
             label='ZIP'
             type='text'
             name='zip'
+            minLength='5'
+            maxLength='5'
             placeholder={displayData.zip}
             onChange={(e) => {
               onChange(e);
@@ -240,7 +249,7 @@ const BusinessInfo = () => {
                 </FormGroup> */}
 
         <FormGroup>
-          {" "}
+          <p className={message === "Success" ? "suc" : "fail"}>{message}</p>{" "}
           <Button color='success'>Submit</Button>{" "}
           <Button tag={Link} to='/BusinessMain'>
             Back

@@ -7,6 +7,7 @@ import "./newNotification.css";
 const NewNotification = () => {
   let url = "";
 
+  const [message, setMessage] = useState(null);
   const [mail, setMail] = useState(null);
   const [messageData, setMessageData] = useState({
     subject: "",
@@ -33,10 +34,12 @@ const NewNotification = () => {
       .then((res) => {
         console.log(mail);
         console.log(res);
+        setMessage("Success");
       })
       .catch((err) => {
         console.log(mail);
         console.log(err);
+        setMessage("Failed");
       });
   };
 
@@ -152,7 +155,7 @@ const NewNotification = () => {
       </FormGroup>
 
       <FormGroup>
-        {" "}
+        <p className={message === "Success" ? "suc" : "fail"}>{message}</p>{" "}
         <Button color='success'>Send</Button>{" "}
         <Button tag={Link} to='/BusinessMain'>
           Back

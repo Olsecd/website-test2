@@ -14,6 +14,7 @@ export default function PatronInfo() {
   // Const for data being sent
   const [formData, setFormData] = useState([]);
   const [displayData, setDisplayData] = useState([]);
+  const [message, setMessage] = useState(null);
 
   useEffect(() => {
     axios
@@ -40,10 +41,17 @@ export default function PatronInfo() {
     formData2.append("email", formData.email);
     formData2.append("password", formData.password);
 
-    axios.post(updateURL, formData2).then((res) => {
-      console.log(formData2);
-      console.log(res);
-    });
+    axios
+      .post(updateURL, formData2)
+      .then((res) => {
+        console.log(formData2);
+        console.log(res);
+        setMessage("Success");
+      })
+      .catch((err) => {
+        console.log(err);
+        setMessage("Failed");
+      });
   };
 
   // Return
@@ -57,7 +65,6 @@ export default function PatronInfo() {
             type='text'
             name='first_name'
             placeholder={displayData.first_name}
-            
             onChange={(e) => {
               onChange(e);
             }}
@@ -95,6 +102,7 @@ export default function PatronInfo() {
           />
         </FormGroup>
         <FormGroup>
+          <p className={message === "Success" ? "suc" : "fail"}>{message}</p>
           <Button color='success'>Submit</Button>{" "}
           <Button tag={Link} to='/PatronMain'>
             Back
