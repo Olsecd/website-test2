@@ -9,7 +9,9 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  FormGroup,
 } from "reactstrap";
+import { AvForm, AvField } from "availity-reactstrap-validation";
 import { MDBDataTable } from "mdbreact";
 import axios from "axios";
 import "./PatronMain.css";
@@ -25,6 +27,46 @@ $display_table[$i] = ["name" => $business_row['name'], "type" => $business_row['
 const PatronMain = () => {
   let url = "/react-backend/patron/displayVisitedLocation.php";
   let alertURL = "/react-backend/patron/sendNotification.php";
+
+  const [formData, setFormdata] = useState({
+    start_date: "",
+    end_date: "",
+    date_of_test: "",
+  });
+
+  const [message, setMessage] = useState("");
+
+  const onChange = (e) => {
+    setFormdata({ ...formData, [e.target.name]: e.target.value });
+    console.log(formData);
+  };
+
+  const alertHandler = () => {
+    let formData2 = new FormData();
+    formData2.append("start_date", formData.start_date);
+    formData2.append("end_date", formData.end_date);
+    formData2.append("date_of_test", formData.date_of_test);
+    console.log("clicked");
+
+    const urlNotification = "/react-backend/patron/sendNotification.php";
+    axios
+
+      .post(urlNotification, formData2)
+      //HERE URL WILL EQUAL BACKEND API LINK (POST API LINK.)
+      //  firstName: String(FormData.firstName),
+      //  lastName: String(FormData.lastName),
+      //  email: String(FormData.email),
+      //  password: String(FormData.password),
+      //})
+      .then((res) => {
+        console.log(res);
+        setMessage("Successful");
+      })
+      .catch((err) => {
+        console.log(err);
+        setMessage("Failed");
+      });
+  };
 
   // Modal
   const [modal, setModal] = useState(false);
@@ -119,7 +161,7 @@ const PatronMain = () => {
   };
 
   return (
-    <div className="formPatronMain">
+    <div className='formPatronMain'>
       <aside>
         <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown}>
           <DropdownToggle color='secondary'>
@@ -139,20 +181,59 @@ const PatronMain = () => {
         <Modal isOpen={modal} toggle={toggleModal}>
           <ModalHeader toggle={toggleModal}>Report New Case</ModalHeader>
           <ModalBody>
-            <h2>CAUTION!</h2> <p>You are about to inform all previously visited
-            businesses that you have tested postive for COVID-19 on this current
-            date. Your personal information will be kept secret in accordance
-            with protections under the Health Information Privacy Act.</p>
+            <h2>CAUTION!</h2>{" "}
+            <p>
+              You are about to inform all previously visited businesses that you
+              have tested postive for COVID-19 on this current date. Your
+              personal information will be kept secret in accordance with
+              protections under the Health Information Privacy Act.
+            </p>
           </ModalBody>
-          <ModalFooter>
-            <Button color='danger' onClick={toggleModal} formaction={alertURL}>
-              REPORT
-            </Button>
+          <AvForm>
+            <ModalFooter>
+              <AvField
+                type='date'
+                name='start_date'
+                label='Start Date'
+                onChange={(e) => {
+                  onChange(e);
+                }}
+                required
+              />
+              <AvField
+                type='date'
+                name='end_date'
+                label='End Date'
+                onChange={(e) => {
+                  onChange(e);
+                }}
+                required
+              />
+              <AvField
+                type='date'
+                name='date_of_test'
+                label='Date of Positive Test Result'
+                onChange={(e) => {
+                  onChange(e);
+                }}
+                required
+              />
+              <Button
+                color='danger'
+                onClick={alertHandler}
+                //formAction={alertHandler}
+              >
+                REPORT
+              </Button>
 
-            <Button color='secondary' onClick={toggleModal}>
-              CANCEL
-            </Button>
-          </ModalFooter>
+              <Button color='secondary' onClick={toggleModal}>
+                CLOSE
+              </Button>
+              <p className={message === "Successful" ? "suc" : "fail"}>
+                {message}
+              </p>
+            </ModalFooter>
+          </AvForm>
         </Modal>
       </aside>
 
