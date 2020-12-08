@@ -29,6 +29,7 @@ const Register = (props) => {
     town: "",
     zip: "",
     county: "",
+    alert: "",
   });
   const [modal, setModal] = useState(false);
 
@@ -54,6 +55,7 @@ const Register = (props) => {
     formData2.append("town", formData.town);
     formData2.append("zip", formData.zip);
     formData2.append("county", formData.county);
+    formData2.append("alert", formData.alert);
 
     console.log("clicked");
 
@@ -282,6 +284,14 @@ const Register = (props) => {
 
           {/*Couldn't figure out padding for these reactsrap elements. This can be straightened out with CSS*/}
           <p></p>
+          <AvField
+            label='Send automatic Covid-19 alerts?'
+            name='alert'
+            type='checkbox'
+            onChange={(e) => {
+              onChange(e);
+            }}
+          />
         </FormGroup>
 
         {/* <FormGroup>

@@ -93,7 +93,6 @@ const Business = (props) => {
 
   return (
     <>
-
       <AvForm className='formBusiness' onValidSubmit={registerHandler}>
         <h1>Sign in patrons</h1>
         <FormGroup>

@@ -40,6 +40,7 @@ const BusinessInfo = () => {
     formData2.append("town", formData.town);
     formData2.append("zip", formData.zip);
     formData2.append("county", formData.county);
+    formData2.append("alert", formData.alert);
     console.log("clicked");
 
     // set urls
@@ -235,6 +236,14 @@ const BusinessInfo = () => {
           {/*Couldn't figure out padding for these reactsrap elements. This can be straightened out with CSS*/}
           <p></p>
         </FormGroup>
+        <AvField
+          label='Send automatic Covid-19 alerts?'
+          name='alert'
+          type='checkbox'
+          onChange={(e) => {
+            onChange(e);
+          }}
+        />
 
         {/* <FormGroup>
                 <Label>Edit Description</Label>
