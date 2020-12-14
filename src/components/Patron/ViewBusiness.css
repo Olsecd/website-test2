@@ -1,0 +1,5 @@
+#listbox-area {
+  max-height: 700px;
+  overflow: auto;
+  max-width: 200%;
+}

@@ -24,7 +24,7 @@ const Register = (props) => {
     businessType: "",
     businessEmail: "",
     phone: "",
-    url: "",
+    description: "",
     street: "",
     town: "",
     zip: "",
@@ -50,7 +50,7 @@ const Register = (props) => {
     formData2.append("businessType", formData.businessType);
     formData2.append("businessEmail", formData.businessEmail);
     formData2.append("phone", formData.phone);
-    formData2.append("url", formData.url);
+    formData2.append("description", formData.descriptionl);
     formData2.append("street", formData.street);
     formData2.append("town", formData.town);
     formData2.append("zip", formData.zip);
@@ -171,9 +171,9 @@ const Register = (props) => {
           />
 
           <AvField
-            label='URL'
-            type='url'
-            name='url'
+            label='Description'
+            type='textarea'
+            name='description'
             onChange={(e) => {
               onChange(e);
             }}

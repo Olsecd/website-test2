@@ -1,36 +1,37 @@
-.formBusinessInfo {
+.formRegister {
+  padding-top: 20px;
   max-width: 50%;
   margin: auto;
 }
 
-.formBusinessInfo h1 {
-  font-weight: bold;
-  text-align: center;
-}
-
-.formBusinessInfo label {
+.formRegister label {
   font-weight: bold;
   padding-top: 20px;
 }
 
-.formBusinessInfo input {
+.formRegister input {
   max-width: 90%;
   font-weight: bold;
   border-width: 2px;
   border-color: #000000;
 }
 
-.formBusinessInfo select {
+.formRegister h1 {
+  padding-top: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.formRegister select {
   max-width: 90%;
   border-width: 2px;
   border-color: #000000;
   font-weight: bold;
 }
 
-
-.formBusinessInfo textarea{
+.formRegister textarea {
   max-width: 90%;
-  font-weight: bold;
   border-width: 2px;
-  border-color: #000000;
+  border-color: black;
+  font-weight: bold;
 }

@@ -1,0 +1,58 @@
+.rating {
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: lighter;
+}
+#padding {
+  padding-inline-start: 10px;
+  padding-top: 10px;
+}
+#wrapper {
+  width: 700px;
+  overflow: hidden; /* will contain if #first is longer than #second */
+  border: 1px solid lightgray;
+  padding: 10px;
+}
+#first {
+  width: 150px;
+  float: left; /* add this */
+}
+#second {
+  overflow: hidden;
+  height: 250px;
+  /* if you don't want #second to wrap below #first */
+}
+
+#small-heading {
+  font-size: 12pt;
+  font-stretch: stretch;
+  font-weight: bold;
+}
+
+.w3-border-blue,
+.w3-hover-border-blue:hover {
+  border-color: #007bff !important;
+}
+
+.w3-pale-blue,
+.w3-hover-pale-blue:hover {
+  color: #000 !important;
+  background-color: #d6eaff !important;
+}
+.w3-leftbar {
+  border-left: 12px solid #002752;
+}
+.w3-container,
+.w3-panel {
+  padding: 0.01em 16px;
+  width: 100%;
+  height: 50%;
+  resize: none;
+}
+
+#scroll-list {
+  border: 1px solid lightgrey;
+  max-height: 700px;
+  overflow: auto;
+  max-width: auto;
+}

@@ -57,9 +57,9 @@ const SelectBusiness = (props) => {
     //console.log("this is street" + business);
     const urlSelect = "/react-backend/owner/selectBusiness.php";
     axios
-      .post(urlSelect, { street: business })
+      .post(urlSelect, { id: business })
       .then((res) => {
-        console.log("this is street" + business);
+        console.log("this is id" + business);
         console.log(res);
         setMessage("Successful");
       })
@@ -101,10 +101,10 @@ const SelectBusiness = (props) => {
                   <td>
                     {" "}
                     <input
-                      onClick={() => handleBusiness(AllBusinesses.street)}
+                      onClick={() => handleBusiness(AllBusinesses.id)}
                       type='radio'
-                      value='street'
-                      name='street'
+                      value='id'
+                      name='id'
                     />{" "}
                     Select this business
                   </td>

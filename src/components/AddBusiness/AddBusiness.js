@@ -43,6 +43,7 @@ const AddBusiness = (props) => {
     formData2.append("town", formData.town);
     formData2.append("zip", formData.zip);
     formData2.append("county", formData.county);
+    formData2.append("alert", formData.alert);
 
     console.log("clicked");
 
@@ -77,6 +78,7 @@ const AddBusiness = (props) => {
             onChange={(e) => {
               onChange(e);
             }}
+            required
           />
 
           <Label>Business Type</Label>
@@ -87,6 +89,7 @@ const AddBusiness = (props) => {
             onChange={(e) => {
               onChange(e);
             }}
+            required
           >
             <option>Select an option</option>
             <option>Restaurant</option>
@@ -107,6 +110,7 @@ const AddBusiness = (props) => {
             onChange={(e) => {
               onChange(e);
             }}
+            required
           />
 
           <AvField
@@ -116,16 +120,9 @@ const AddBusiness = (props) => {
             onChange={(e) => {
               onChange(e);
             }}
+            required
           />
 
-          <AvField
-            label='URL'
-            type='url'
-            name='description'
-            onChange={(e) => {
-              onChange(e);
-            }}
-          />
           <AvField
             label='Street Address'
             type='address'
@@ -133,6 +130,7 @@ const AddBusiness = (props) => {
             onChange={(e) => {
               onChange(e);
             }}
+            required
           />
 
           <AvField
@@ -142,6 +140,7 @@ const AddBusiness = (props) => {
             onChange={(e) => {
               onChange(e);
             }}
+            required
           />
 
           <AvField
@@ -153,6 +152,7 @@ const AddBusiness = (props) => {
             onChange={(e) => {
               onChange(e);
             }}
+            required
           />
 
           {/* List of Cunties. To-Do: Hide this data in another file/make a helper function */}
@@ -164,6 +164,7 @@ const AddBusiness = (props) => {
             onChange={(e) => {
               onChange(e);
             }}
+            required
           >
             <option>Select the option</option>
             <option>Albany</option>
@@ -230,8 +231,25 @@ const AddBusiness = (props) => {
             <option>Yates</option>
           </Input>
 
+          <AvField
+            label='Description'
+            type='textarea'
+            name='description'
+            onChange={(e) => {
+              onChange(e);
+            }}
+            required
+          />
           {/*Couldn't figure out padding for these reactsrap elements. This can be straightened out with CSS*/}
           <p></p>
+          <AvField
+            label='Send automatic Covid-19 alerts?'
+            name='alert'
+            type='checkbox'
+            onChange={(e) => {
+              onChange(e);
+            }}
+          />
         </FormGroup>
 
         {/* <FormGroup>

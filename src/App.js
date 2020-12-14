@@ -26,6 +26,8 @@ import BusinessOwnerInfo from "./components/Business/BusinessOwnerInfo";
 import PatronMain from "./components/Patron/PatronMain";
 import PatronInfo from "./components/Patron/PatronInfo";
 import BusinessSearch from "./components/Patron/BusinessSearch";
+import WriteReview from "./components/Patron/WriteReview";
+import ViewBusiness from "./components/Patron/ViewBusiness";
 
 function App() {
   // This runs right when the app starts (useEffect)
@@ -95,6 +97,8 @@ function App() {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/SearchBusiness' component={BusinessSearch} />
+        <Route exact path='/ViewBusiness' component={ViewBusiness} />
+        <Route exact path='/WriteReview' component={WriteReview} />
         <PrivateRoute exact path='/Business' component={Business} auth={auth} />
         <Route exact path='/Business' component={Business} />
         <Route exact path='/ChooseRegister' component={ChooseRegister} />

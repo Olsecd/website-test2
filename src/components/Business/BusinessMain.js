@@ -30,11 +30,15 @@ const BusinessMain = () => {
   // Patron URL
   let checkinUrl = "/react-backend/business/displayCheckIn.php";
 
+  let displayNotificationUrl =
+    "/react-backend/business/displayNotification.php";
+
   // Checkin Data from Patron Table. Named 'rows' so it works with MDBTable. TO DO: Rename it later so fetch call makes more sense
   const [rows, setRows] = useState([]);
   // Constant for Business Data
   const [businessData, setBusinessData] = useState([]);
   // Columns for checkin table
+  const [patronNotification, displayNotification] = useState([]);
   const columns = [
     {
       label: "First Name",
@@ -90,6 +94,16 @@ const BusinessMain = () => {
       .catch((err) => {
         console.log(err);
       });
+
+    axios
+      .get(displayNotificationUrl)
+      .then((json) => {
+        displayNotification(json.data);
+        console.log(json.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   // Merge columns + rows so it works with MDBDataTable
@@ -100,8 +114,8 @@ const BusinessMain = () => {
   };
 
   return (
-    <div >
-      <section className="formBusinessMain">
+    <div>
+      <section className='formBusinessMain'>
         <aside>
           <Toast>
             <ToastHeader>
@@ -142,6 +156,9 @@ const BusinessMain = () => {
         <h1>{businessData.name}</h1>
         <h2>{businessData.type}</h2>
         <h3>Recent Check-ins</h3>
+        {patronNotification.map((patronNotification) => {
+          return <p>Recent Notification: {patronNotification.positive_date}</p>;
+        })}
         <div>
           <Button color='success' tag={Link} to='/Business'>
             New Check-In

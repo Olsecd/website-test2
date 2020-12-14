@@ -1,7 +1,11 @@
 .formRegister {
-  padding-top: 20px;
   max-width: 50%;
   margin: auto;
+}
+
+.formRegister h1 {
+  font-weight: bold;
+  text-align: center;
 }
 
 .formRegister label {
@@ -16,15 +20,16 @@
   border-color: #000000;
 }
 
-.formRegister h1 {
-  padding-top: 25px;
-  font-weight: bold;
-  text-align: center;
-}
-
 .formRegister select {
   max-width: 90%;
   border-width: 2px;
   border-color: #000000;
   font-weight: bold;
+}
+
+.formRegister textarea {
+  max-width: 90%;
+  font-weight: bold;
+  border-width: 2px;
+  border-color: #000000;
 }

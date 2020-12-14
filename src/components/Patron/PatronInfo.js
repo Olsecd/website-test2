@@ -39,7 +39,8 @@ export default function PatronInfo() {
     formData2.append("first_name", formData.first_name);
     formData2.append("last_name", formData.last_name);
     formData2.append("email", formData.email);
-    formData2.append("password", formData.password);
+    formData2.append("oldPassword", formData.oldPassword);
+    formData2.append("newPassword", formData.newPassword);
 
     axios
       .post(updateURL, formData2)
@@ -64,41 +65,50 @@ export default function PatronInfo() {
             label='First Name'
             type='text'
             name='first_name'
-            placeholder={displayData.first_name}
+            value={displayData.first_name}
             onChange={(e) => {
               onChange(e);
             }}
-            required
           />
           <AvField
             label='Last Name'
             type='text'
             name='last_name'
-            placeholder={displayData.last_name}
+            value={displayData.last_name}
             onChange={(e) => {
               onChange(e);
             }}
-            required
+
           />
           <AvField
             label='Email'
             type='text'
             name='email'
-            placeholder={displayData.email}
+            value={displayData.email}
             onChange={(e) => {
               onChange(e);
             }}
-            required
+
           />
 
           <AvField
-            label='Password'
+            label='Old Password'
             type='password'
-            name='password'
+            name='oldPassword'
             onChange={(e) => {
               onChange(e);
             }}
-            required
+
+          />
+
+          <AvField
+            label='New Password'
+            type='password'
+            name='newPassword'
+            onChange={(e) => {
+              onChange(e);
+            }}
+
           />
         </FormGroup>
         <FormGroup>

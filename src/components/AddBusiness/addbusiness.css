@@ -28,3 +28,10 @@
   border-color: #000000;
   font-weight: bold;
 }
+
+.formAddBusiness textarea{
+  max-width: 90%;
+  font-weight: bold;
+  border-width: 2px;
+  border-color: #000000;
+}

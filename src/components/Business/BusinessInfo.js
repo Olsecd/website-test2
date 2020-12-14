@@ -68,7 +68,7 @@ const BusinessInfo = () => {
             label='Business Name'
             type='text'
             name='name'
-            placeholder={displayData.name}
+            value={displayData.name}
             onChange={(e) => {
               onChange(e);
             }}
@@ -79,7 +79,7 @@ const BusinessInfo = () => {
             type='select'
             name='type'
             id='type'
-            placeholder={displayData.type}
+            value={displayData.type}
             onChange={(e) => {
               onChange(e);
             }}
@@ -100,7 +100,7 @@ const BusinessInfo = () => {
             label='Business Email'
             type='email'
             name='email'
-            placeholder={displayData.email}
+            value={displayData.email}
             onChange={(e) => {
               onChange(e);
             }}
@@ -110,26 +110,17 @@ const BusinessInfo = () => {
             label='Phone Number'
             type='phone'
             name='phone'
-            placeholder={displayData.phone}
+            value={displayData.phone}
             onChange={(e) => {
               onChange(e);
             }}
           />
 
           <AvField
-            label='URL'
-            type='url'
-            name='description'
-            placeholder={displayData.description}
-            onChange={(e) => {
-              onChange(e);
-            }}
-          />
-          <AvField
             label='Street Address'
             type='address'
             name='street'
-            placeholder={displayData.street}
+            value={displayData.street}
             onChange={(e) => {
               onChange(e);
             }}
@@ -139,7 +130,7 @@ const BusinessInfo = () => {
             label='Town'
             type='text'
             name='town'
-            placeholder={displayData.town}
+            value={displayData.town}
             onChange={(e) => {
               onChange(e);
             }}
@@ -151,7 +142,7 @@ const BusinessInfo = () => {
             name='zip'
             minLength='5'
             maxLength='5'
-            placeholder={displayData.zip}
+            value={displayData.zip}
             onChange={(e) => {
               onChange(e);
             }}
@@ -163,7 +154,7 @@ const BusinessInfo = () => {
             type='select'
             name='county'
             id='county'
-            placeholder={displayData.county}
+            value={displayData.county}
             onChange={(e) => {
               onChange(e);
             }}
@@ -233,17 +224,28 @@ const BusinessInfo = () => {
             <option>Yates</option>
           </Input>
 
+          <AvField
+            label='Description'
+            type='textarea'
+            name='description'
+            value={displayData.description}
+            onChange={(e) => {
+              onChange(e);
+            }}
+          />
           {/*Couldn't figure out padding for these reactsrap elements. This can be straightened out with CSS*/}
           <p></p>
+          <AvField
+            label='Send automatic Covid-19 alerts?'
+            name='alert'
+            type='checkbox'
+            value={displayData.alert}
+            onChange={(e) => {
+              onChange(e);
+            }}
+          />
         </FormGroup>
-        <AvField
-          label='Send automatic Covid-19 alerts?'
-          name='alert'
-          type='checkbox'
-          onChange={(e) => {
-            onChange(e);
-          }}
-        />
+
 
         {/* <FormGroup>
                 <Label>Edit Description</Label>

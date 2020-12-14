@@ -17,8 +17,11 @@ export default function NewAlert() {
   // Get Patron Data for Dropdown Menu
   let url = "/react-backend/business/displayCheckIn.php";
   let sendURL = "/react-backend/business/sendemail/alert.php";
+  let displayNotificationUrl =
+    "/react-backend/business/displayNotification.php";
 
   const [message, setMessage] = useState(null);
+  const [patronNotification, displayNotification] = useState([]);
   // Modal
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
@@ -33,6 +36,18 @@ export default function NewAlert() {
     message: "",
   });
 
+  useEffect(() => {
+    // Fetch Checkin Data
+    axios
+      .get(displayNotificationUrl)
+      .then((json) => {
+        displayNotification(json.data);
+        console.log(json.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   // Register Handler Runs On Valid Submit
   const registerHandler = () => {
     let FormData2 = new FormData();
@@ -133,6 +148,9 @@ export default function NewAlert() {
             Back
           </Button>{" "}
         </FormGroup>
+        {patronNotification.map((patronNotification) => {
+          return <p>Recent Notification: {patronNotification.positive_date}</p>;
+        })}
       </AvForm>
     </div>
   );

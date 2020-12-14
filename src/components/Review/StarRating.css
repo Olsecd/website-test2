@@ -1,0 +1,21 @@
+.StarRating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#radio-input {
+  display: none;
+  visibility: hidden;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+/*
+      yellow: #ffc107
+      gray: #e4e5e9
+  */
