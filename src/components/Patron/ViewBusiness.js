@@ -82,7 +82,7 @@ const ViewBusiness = (props) => {
   };
 
   return (
-    <div>
+    <div className='ViewBusiness'>
       <section>
         <aside>
           <Toast>

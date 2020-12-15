@@ -28,6 +28,7 @@ import PatronInfo from "./components/Patron/PatronInfo";
 import BusinessSearch from "./components/Patron/BusinessSearch";
 import WriteReview from "./components/Patron/WriteReview";
 import ViewBusiness from "./components/Patron/ViewBusiness";
+import BusinessSearchOld from "./components/Patron/BusinessSearchOld";
 
 function App() {
   // This runs right when the app starts (useEffect)
@@ -103,6 +104,7 @@ function App() {
       />
       <Switch>
         <Route exact path='/' component={Home} />
+        <Route exact path='/OldSearchBusiness' component={BusinessSearchOld} />
         <Route exact path='/SearchBusiness' component={BusinessSearch} />
         <Route
           exact

@@ -3,3 +3,69 @@
   overflow: auto;
   max-width: 200%;
 }
+
+.ViewBusiness h1 {
+  text-align: left;
+  width: 100%;
+  font-weight: bolder;
+}
+.ViewBusiness h2 {
+  text-align: left;
+  width: 100%;
+  font-weight: bolder;
+}
+.ViewBusiness h3 {
+  text-align: left;
+  width: 100%;
+  font-weight: bolder;
+}
+.ViewBusiness section {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.ViewBusiness aside {
+  width: 25%;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 100px;
+  margin-left: 15px;
+  margin-right: 15px;
+  float: right;
+  font-style: italic;
+}
+
+.ViewBusiness th {
+  text-align: left;
+  padding: 8px;
+  width: 90px;
+  font-weight: 700;
+  color: whitesmoke;
+  background-color: #007bff;
+}
+.ViewBusiness td {
+  text-align: left;
+  padding: 8px;
+  width: 90px;
+  font-weight: 700;
+}
+*.t1 {
+  max-height: 800px;
+  max-width: 1600px;
+  overflow-y: scroll;
+  table-layout: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  border: 1px solid #ddd;
+}
+
+/* .ViewBusiness ul {
+  list-style-type: none;
+}
+
+.ViewBusiness li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  list-style-type: none;
+} */

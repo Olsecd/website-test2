@@ -3,7 +3,7 @@ import { MDBDataTable } from "mdbreact";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const BusinessSearch = () => {
+const BusinessSearchOld = () => {
   let url = "/react-backend/displayAllBusiness.php";
   //Named Rows so it will work with MDBreact Table
   const [rows, setRows] = useState([]);
@@ -77,4 +77,4 @@ const BusinessSearch = () => {
 
   return <div>{renderTable()}</div>;
 };
-export default BusinessSearch;
+export default BusinessSearchOld;

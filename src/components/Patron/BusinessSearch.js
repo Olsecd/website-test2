@@ -2,6 +2,8 @@ import React, { useEffect, useState, setPageLoading } from "react";
 import axios, { CancelToken } from "axios";
 import { Button, Table } from "reactstrap";
 import { Link } from "react-router-dom";
+import { MDBDataTable } from "mdbreact";
+import "./BusinessSearch.css";
 
 // $business_info[$i] = ["name" => $row['name'], "type" => $row['type'], "street" => $row['street'], "town" => $row['town'], "zip" => $row['zip'], "county" => $row['county']];
 
@@ -12,11 +14,13 @@ const BusinessSearch = () => {
   const [allBusinesses, setAllBusinesses] = useState([]);
   const [business, setBusiness] = useState();
   const [message, setMessage] = useState();
+  const [rows, setRows] = useState([]);
 
   useEffect(() => {
     axios
       .get(url)
       .then((json) => {
+        setRows(json.data);
         setAllBusinesses(json.data);
         console.log(json.data || " ");
       })
@@ -44,9 +48,69 @@ const BusinessSearch = () => {
     console.log(business);
   };
 
+  const table = [
+    {
+      addBtn: (
+        <button className='btn btn-primary' onClick={() => this.addToCart()}>
+          Add
+        </button>
+      ),
+    },
+  ];
+
+  const columns = [
+    {
+      label: "Business",
+      field: "name",
+      sort: "asc",
+      width: 150,
+    },
+    {
+      label: "Type",
+      field: "type",
+      sort: "asc",
+      width: 270,
+    },
+    {
+      label: "Street",
+      field: "street",
+      sort: "asc",
+      width: 150,
+    },
+    {
+      label: "Town",
+      field: "town",
+      sort: "asc",
+      width: 200,
+    },
+    {
+      label: "Zip",
+      field: "zip",
+      sort: "asc",
+      width: 100,
+    },
+    {
+      label: "County",
+      field: "county",
+      sort: "asc",
+      width: 100,
+    },
+    {
+      label: "Select",
+      field: "",
+    },
+  ];
+
+  // Merge columns + rows so it works with MDBDataTable
+  const tableData = { columns, rows };
+  // Render Table Function. Creates Sortable Table with MDB React
+  const renderTable2 = () => {
+    return <MDBDataTable striped bordered data={tableData} />;
+  };
+
   const renderTable = () => {
     return (
-      <div>
+      <div className='businessSearch'>
         <Table>
           <thead>
             <tr>
@@ -87,7 +151,8 @@ const BusinessSearch = () => {
   return (
     <>
       <h1>Select a Business</h1>
-      {renderTable()};
+      {/* {renderTable()}; */}
+      {renderTable2()};
       <Button
         onClick={() => selectedBusiness(business)}
         color='success'
