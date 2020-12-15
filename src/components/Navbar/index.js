@@ -43,7 +43,7 @@ const Navbar = ({
     <>
       <Nav>
         <NavbarContainer>
-          <NavLogo to='/'>Home</NavLogo>
+          <NavLogo to='/'>Home </NavLogo>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
@@ -100,7 +100,9 @@ const Navbar = ({
           </NavMenu>
           <NavBtn>
             {auth ? (
-              <NavLogout onClick={handleLogout}>Log Out</NavLogout>
+              <NavLogout onClick={handleLogout} to='/'>
+                Log Out{" "}
+              </NavLogout>
             ) : (
               <NavBtnLink to='/Login'>Sign In</NavBtnLink>
             )}

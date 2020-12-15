@@ -86,7 +86,14 @@ function App() {
 
   return (
     <Router>
-      <Sidebar isOpen={isOpen} toggle={toggle} />
+      <Sidebar
+        isOpen={isOpen}
+        toggle={toggle}
+        auth={auth}
+        handleAuth={handleAuth}
+        displayState={userType}
+        displayStateHandler={userTypeHandler}
+      />
       <Navbar
         toggle={toggle}
         auth={auth}
@@ -97,7 +104,18 @@ function App() {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/SearchBusiness' component={BusinessSearch} />
-        <Route exact path='/ViewBusiness' component={ViewBusiness} />
+        <Route
+          exact
+          path='/ViewBusiness'
+          component={ViewBusiness}
+          auth={auth}
+        />
+        <PrivateRoute
+          exact
+          path='/WriteReview'
+          component={WriteReview}
+          auth={auth}
+        />
         <Route exact path='/WriteReview' component={WriteReview} />
         <PrivateRoute exact path='/Business' component={Business} auth={auth} />
         <Route exact path='/Business' component={Business} />

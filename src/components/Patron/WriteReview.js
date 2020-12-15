@@ -12,6 +12,7 @@ const WriteReview = () => {
     social_distance_rating: "",
     comment: "",
   });
+  const [message, setMessage] = useState("");
 
   const onChange = (e) => {
     setReview({ ...review, [e.target.name]: e.target.value });
@@ -30,9 +31,11 @@ const WriteReview = () => {
       .post(postURL, formData)
       .then((res) => {
         console.log(res);
+        setMessage("Successful");
       })
       .catch((err) => {
         console.log(err);
+        setMessage("Failed");
       });
   };
 
@@ -40,28 +43,37 @@ const WriteReview = () => {
     <div>
       <AvForm className='formRegister' onValidSubmit={registerHandler}>
         <AvField
-          label='Mask Rating'
+          label='Mask Rating (1-5 stars)'
           name='mask_rating'
-          type='text'
+          type='number'
+          min='1'
+          max='5'
           onChange={(e) => {
             onChange(e);
           }}
+          required
         ></AvField>
         <AvField
-          label='Sanitizer Rating'
+          label='Sanitizer Rating (1-5 stars)'
           name='sanitize_rating'
-          type='text'
+          type='number'
+          min='1'
+          max='5'
           onChange={(e) => {
             onChange(e);
           }}
+          required
         ></AvField>
         <AvField
-          label='Social Distance Rating'
+          label='Social Distance Rating (1-5 stars)'
           name='social_distance_rating'
-          type='text'
+          type='number'
+          min='1'
+          max='5'
           onChange={(e) => {
             onChange(e);
           }}
+          required
         ></AvField>
         <AvField
           label='Additional Comments'
@@ -71,7 +83,11 @@ const WriteReview = () => {
             onChange(e);
           }}
         ></AvField>
+        <p className={message === "Successful" ? "suc" : "fail"}>{message}</p>
         <Button>Submit</Button>
+        <Button tag={Link} to='/ViewBusiness'>
+          Back
+        </Button>{" "}
       </AvForm>
     </div>
   );

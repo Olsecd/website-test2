@@ -22,6 +22,7 @@ const ReviewItem = (props) => {
         </div>
         <div id='second'>
           <textarea
+            readOnly={true}
             cols={30}
             class='w3-container w3-pale-blue w3-leftbar w3-border-blue'
           >

@@ -12,8 +12,16 @@ import {
 } from "./SidebarElements";
 import axios from "axios";
 
-const Sidebar = ({ isOpen, toggle, auth, handleAuth }) => {
+const Sidebar = ({
+  isOpen,
+  toggle,
+  auth,
+  handleAuth,
+  displayState,
+  displayStateHandler,
+}) => {
   const handleLogout = (e) => {
+    displayStateHandler("0");
     e.preventDefault();
     //console.log("clicked");
     //Cookies.remove("PHPSESSID");
@@ -33,24 +41,26 @@ const Sidebar = ({ isOpen, toggle, auth, handleAuth }) => {
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
-          <SidebarLink to='about' onClick={toggle}>
+          <SidebarMenuItem to='/SearchBusiness' onClick={toggle}>
             {" "}
-            About
-          </SidebarLink>
-          <SidebarMenuItem to='/BusinessMain' onClick={toggle}>
-            {" "}
-            Business{" "}
-          </SidebarMenuItem>
-          <SidebarMenuItem to='/Business' onClick={toggle}>
-            {" "}
-            Check-In{" "}
+            Search Businesses{" "}
           </SidebarMenuItem>
           {auth ? (
             ""
           ) : (
-            <SidebarMenuItem to='/Register' onClick={toggle}>
+            <SidebarMenuItem to='/ChooseRegister' onClick={toggle}>
               {" "}
               Sign Up{" "}
+            </SidebarMenuItem>
+          )}
+          {displayState === "1" && (
+            <SidebarMenuItem to='/PatronMain'>
+              Visited Businesses
+            </SidebarMenuItem>
+          )}
+          {displayState === "2" && (
+            <SidebarMenuItem to='/SelectBusiness'>
+              Select/Add Business
             </SidebarMenuItem>
           )}
         </SidebarMenu>

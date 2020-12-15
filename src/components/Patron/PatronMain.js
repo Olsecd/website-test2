@@ -24,7 +24,7 @@ $display_table[$i] = ["name" => $business_row['name'], "type" => $business_row['
  "zip" => $business_row['zip'], "temperature" => $spreadsheet_row['temperature'], 
  "sheet_date" => $spreadsheet_row['sheet_date']];
 */
-const PatronMain = () => {
+const PatronMain = (props) => {
   let url = "/react-backend/patron/displayVisitedLocation.php";
   let alertURL = "/react-backend/patron/sendNotification.php";
 

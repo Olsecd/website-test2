@@ -93,6 +93,7 @@ const BusinessSearch = () => {
         color='success'
         tag={Link}
         to='/ViewBusiness'
+        disabled={!business}
       >
         Visit Business Page
       </Button>

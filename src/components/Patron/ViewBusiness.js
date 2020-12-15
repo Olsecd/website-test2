@@ -4,15 +4,18 @@ import { Link } from "react-router-dom";
 import { Button, Toast, ToastBody, ToastHeader } from "reactstrap";
 import ReviewItem from "../Review/ReviewItem";
 import "./ViewBusiness.css";
+import { Redirect } from "react-router-dom";
 
 const ViewBusiness = (props) => {
   let displayReviewUrl = "/react-backend/displayBusinessReview.php";
   let businessInfoUrl = "/react-backend/displayBusinessInfo.php";
   //let insertReviewUrl = "/react-backend/patron/insertReview.php";
-  //let authReview = "/react-backend/patron/authorizeReview.php";
+  let authReview = "/react-backend/patron/authorizeReview.php";
 
   const [reviews, setReviews] = useState([]);
   const [businessData, setBusinessData] = useState([]);
+  const [message, setMessage] = useState();
+  //const [authorize, setAuthorize] = useState([]);
 
   useEffect(() => {
     // Get Reviews
@@ -36,6 +39,19 @@ const ViewBusiness = (props) => {
         console.log(err);
       });
   }, []);
+  const AuthorizeReview = (e) => {
+    axios
+      .post(authReview, { id: businessData })
+      .then((res) => {
+        console.log("Business ID: " + businessData.id);
+        console.log(res);
+        setMessage("Successful");
+      })
+      .catch((err) => {
+        console.log(err);
+        setMessage("You must be a patron of this business and logged in");
+      });
+  };
 
   const renderTable = () => {
     return (
@@ -51,7 +67,7 @@ const ViewBusiness = (props) => {
             {reviews.map((r) => {
               return (
                 <ReviewItem
-                  name='Bob Barker'
+                  name={r.patron_name}
                   maskRating={r.mask_rating}
                   saniRating={r.sanitize_rating}
                   distRating={r.social_distance_rating}
@@ -89,10 +105,20 @@ const ViewBusiness = (props) => {
         </aside>
         <h1>{businessData.name}</h1>
         <h2>{businessData.type}</h2>
-        <h3>Recent</h3>
-        <Button color='success' tag={Link} to='/WriteReview'>
+
+        <p className={message === "Successful Login" ? "suc" : "fail"}>
+          {message}
+        </p>
+        <Button
+          onClick={() => AuthorizeReview(businessData)}
+          color='success'
+          // tag={Link}
+          // to='/WriteReview'
+        >
           Write Review
         </Button>
+        {message === "Successful" && <Redirect to='/WriteReview' />}
+
         {renderTable()}
         <div></div>
       </section>
