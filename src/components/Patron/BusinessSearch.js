@@ -151,8 +151,7 @@ const BusinessSearch = () => {
   return (
     <>
       <h1>Select a Business</h1>
-      {/* {renderTable()}; */}
-      {renderTable2()};
+      {renderTable()};{/* {renderTable2()}; */}
       <Button
         onClick={() => selectedBusiness(business)}
         color='success'

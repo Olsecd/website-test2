@@ -7,20 +7,36 @@ const BusinessSearchOld = () => {
   let url = "/react-backend/displayAllBusiness.php";
   //Named Rows so it will work with MDBreact Table
   const [rows, setRows] = useState([]);
-
+  const [business, setBusiness] = useState();
   useEffect(() => {
     axios
       .get(url)
       .then((json) => {
         setRows(json.data);
-        console.log(json.data);
       })
       .catch((err) => {
         console.log(err);
       });
   });
 
-  // Column headings for MDBreact table
+  const handleBusiness = (business) => {
+    setBusiness(business);
+    console.log(business);
+  };
+
+  const table = [
+    {
+      addBtn: (
+        <input
+          onClick={() => handleBusiness(business.id)}
+          type='radio'
+          value='id'
+          name='id'
+        />
+      ),
+    },
+  ];
+
   const columns = [
     {
       label: "Business",
@@ -59,15 +75,14 @@ const BusinessSearchOld = () => {
       width: 100,
     },
     {
-      label: "Link",
-      field: "link",
-      sort: "asc",
-      width: 100,
+      label: "Select",
+      field: table[0].addBtn,
     },
   ];
+  //rows: table,
 
   // Merge columns + rows so it works with MDBDataTable
-  rows.link = "HELP";
+
   const tableData = { columns, rows };
 
   // Render Table Function. Creates Sortable Table with MDB React
