@@ -88,6 +88,9 @@ const Navbar = ({
             </NavItem> */}
 
             <NavItem>
+              <NavMenuItem to='/Table'>NY COVID-19 Test Data</NavMenuItem>
+            </NavItem>
+            <NavItem>
               <NavMenuItem to='/SearchBusiness'>Search Businesses</NavMenuItem>
             </NavItem>
             <NavItem>

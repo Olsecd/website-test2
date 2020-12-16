@@ -41,6 +41,10 @@ const Sidebar = ({
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
+          <SidebarMenuItem to='/Table' onClick={toggle}>
+            {" "}
+            NY COVID-19 Test Data{" "}
+          </SidebarMenuItem>
           <SidebarMenuItem to='/SearchBusiness' onClick={toggle}>
             {" "}
             Search Businesses{" "}
