@@ -67,7 +67,9 @@ const BusinessSearchOld = () => {
 
   // Render Table Function. Creates Sortable Table with MDB React
   const renderTable = () => {
-    return <MDBDataTable striped hover bordered data={tableData} />;
+    return (
+      <MDBDataTable striped paging={false} hover bordered data={tableData} />
+    );
   };
 
   return <div className='businessSearch'>{renderTable()}</div>;

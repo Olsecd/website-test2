@@ -228,7 +228,6 @@ const BusinessInfo = () => {
             label='Description'
             type='textarea'
             name='description'
-            value={displayData.description}
             onChange={(e) => {
               onChange(e);
             }}
@@ -245,7 +244,6 @@ const BusinessInfo = () => {
             }}
           />
         </FormGroup>
-
 
         {/* <FormGroup>
                 <Label>Edit Description</Label>

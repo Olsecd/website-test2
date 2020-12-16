@@ -148,14 +148,12 @@ export default function NewAlert() {
             Back
           </Button>{" "}
         </FormGroup>
-        {patronNotification.map((patronNotification) => {
-          return (
-            <p className='fail'>
-              Your most recent COVID-19 alert at this business was on{" "}
-              {patronNotification.positive_date}
-            </p>
-          );
-        })}
+        {patronNotification.positive_date && (
+          <p className='fail'>
+            Your most recent COVID-19 alert at this business was on{" "}
+            {patronNotification.positive_date}
+          </p>
+        )}
       </AvForm>
     </div>
   );

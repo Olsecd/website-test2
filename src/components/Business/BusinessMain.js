@@ -156,14 +156,13 @@ const BusinessMain = () => {
         <h1>{businessData.name}</h1>
         <h2>{businessData.type}</h2>
         <h3>Recent Check-ins</h3>
-        {patronNotification.map((patronNotification) => {
-          return (
-            <p className='fail'>
-              Your most recent COVID-19 alert at this business was on{" "}
-              {patronNotification.positive_date}
-            </p>
-          );
-        })}
+        {patronNotification.positive_date && (
+          <p className='fail'>
+            Your most recent COVID-19 alert at this business was on{" "}
+            {patronNotification.positive_date}
+          </p>
+        )}
+
         <div>
           <Button color='success' tag={Link} to='/Business'>
             New Check-In
