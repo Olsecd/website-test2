@@ -69,7 +69,6 @@ const BusinessOwnerInfo = (props) => {
             onChange={(e) => {
               onChange(e);
             }}
-
           />
           <AvField
             label='Last Name'
@@ -79,7 +78,6 @@ const BusinessOwnerInfo = (props) => {
             onChange={(e) => {
               onChange(e);
             }}
-
           />
           <AvField
             label='Email'
@@ -89,7 +87,6 @@ const BusinessOwnerInfo = (props) => {
             onChange={(e) => {
               onChange(e);
             }}
-
           />
 
           <AvField
@@ -99,7 +96,6 @@ const BusinessOwnerInfo = (props) => {
             onChange={(e) => {
               onChange(e);
             }}
-
           />
           <AvField
             label='New Password'
@@ -108,7 +104,6 @@ const BusinessOwnerInfo = (props) => {
             onChange={(e) => {
               onChange(e);
             }}
-            
           />
         </FormGroup>
         <FormGroup>

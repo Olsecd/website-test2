@@ -63,7 +63,6 @@ const PatronRegister = (props) => {
 
   return (
     <>
-
       <AvForm className='formRegisterPatron' onValidSubmit={registerHandler}>
         <h1>Register as a patron</h1>
         <FormGroup>

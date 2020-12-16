@@ -104,7 +104,7 @@ function App() {
       />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route exact path='/OldSearchBusiness' component={BusinessSearchOld} />
+        <Route exact path='/Map' component={BusinessSearchOld} />
         <Route exact path='/SearchBusiness' component={BusinessSearch} />
         <Route
           exact

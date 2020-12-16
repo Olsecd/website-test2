@@ -4,6 +4,9 @@ h1 {
   font-weight: bolder;
 }
 
+.businessSearch div {
+  text-align: center;
+}
 .businessSearch th {
   text-align: left;
   padding: 8px;
@@ -27,4 +30,32 @@ h1 {
   border-spacing: 0;
 
   border: 1px solid #ddd;
+}
+.businessSearch label {
+  font-weight: bold;
+  padding-top: 20px;
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+
+.businessSearch input {
+  max-width: 50%;
+  font-weight: bold;
+  border-width: 2px;
+  border-color: #000000;
+  margin: auto;
+}
+
+.businessSearch select {
+  max-width: 50%;
+  border-width: 2px;
+  border-color: #000000;
+  font-weight: bold;
+  margin: auto;
+}
+.businessSearch button {
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
 }

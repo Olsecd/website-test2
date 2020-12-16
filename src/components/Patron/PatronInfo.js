@@ -78,7 +78,6 @@ export default function PatronInfo() {
             onChange={(e) => {
               onChange(e);
             }}
-
           />
           <AvField
             label='Email'
@@ -88,7 +87,6 @@ export default function PatronInfo() {
             onChange={(e) => {
               onChange(e);
             }}
-
           />
 
           <AvField
@@ -98,7 +96,6 @@ export default function PatronInfo() {
             onChange={(e) => {
               onChange(e);
             }}
-
           />
 
           <AvField
@@ -108,7 +105,6 @@ export default function PatronInfo() {
             onChange={(e) => {
               onChange(e);
             }}
-
           />
         </FormGroup>
         <FormGroup>
